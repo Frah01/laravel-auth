@@ -6,6 +6,21 @@
         {{ __('I tuoi Progetti') }}
     </h2>
     <div class="row justify-content-center">
+        <div class="row">
+            <div class="d-flex justify-content-between">
+                <div class="col-12">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h2>Aggiungi nuovo progetto</h2>
+                        </div>
+                        <div>
+                            <a href="{{route('admin.projects.create')}}" class="btn btn-small btn-primary">Aggiungi</a> 
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
         <div class="col">
             <div class="card">
                 <div class="card-header">{{ __('User Projects') }}</div>
