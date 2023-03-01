@@ -56,7 +56,6 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
     }
 
     /**
@@ -88,8 +87,10 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Project $project)
+    public function destroy($id)
     {
-        //
+        $project = Project::findOrFail($id);
+        $project->delete();
+        return redirect()->route('admin.projects.index');
     }
 }
