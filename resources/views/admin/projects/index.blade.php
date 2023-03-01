@@ -41,16 +41,16 @@
                             @foreach ($projects as $project)
                             <tr>
                               <th scope="row">{{$project['id']}}</th>
-                              <td>{{$project['title']}}</td>
-                              <td>{{$project['content']}}</td>
-                              <td>{{$project['slug']}}</td>
+                              <td><p class="fw-semibold">{{$project['title']}}</p></td>
+                              <td><p class="fw-semibold">{{$project['content']}}</p></td>
+                              <td><p class="fw-semibold">{{$project['slug']}}</p></td>
                               <td>
                                 {{-- <a href="{{route('admin.projects.show')}}" class="btn btn-square btn-sm btn-info m-1" title="Ispeziona"><i class="fa fa-eye" ></i></a>
                                 <a href="" class="btn btn-square btn-sm btn-secondary m-1" title="Modifica"><i class="fa fa-edit"></i></a> --}}
                                 <form class="d-inline-block" method="POST" action="{{route('admin.projects.destroy', ['project'=> $project['id']])}}">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-square btn-danger" data-title="{{$project->title}}"><i class="fas fa-trash" ></i></button>
+                                    <button type="submit" class="btn btn-sm btn-square btn-danger confirm-delete-button" data-title="{{$project->title}}"><i class="fas fa-trash" ></i></button>
                                 </form>
                               </td>
                             </tr>    
@@ -62,4 +62,5 @@
         </div>
     </div>
 </div>
+@include('partials.modal_delete')
 @endsection
