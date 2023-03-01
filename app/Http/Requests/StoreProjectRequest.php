@@ -28,4 +28,17 @@ class StoreProjectRequest extends FormRequest
             'content' => ['nullable'],
         ];
     }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'title.required' => 'Il titolo è richiesto',
+            'title.unique' => 'Il titolo deve essere univoco',
+        ];
+    }
 }

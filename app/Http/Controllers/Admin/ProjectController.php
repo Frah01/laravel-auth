@@ -56,6 +56,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
+        return view('admin.projects.show', compact('project'));
     }
 
     /**
@@ -66,7 +67,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
@@ -78,7 +79,11 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $form_data = $request->validated();
+        $slug = Project::generateSlug($request->title, '-');
+        $form_data['slug'] = $slug;
+        $project->update($form_data);
+        return redirect()->route('admin.projects.index')->with('message', 'Progetto modificato corretamente');
     }
 
     /**
@@ -87,10 +92,9 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Project $project)
     {
-        $project = Project::findOrFail($id);
         $project->delete();
-        return redirect()->route('admin.projects.index');
+        return redirect()->route('admin.projects.index', compact('project'))->with('message', 'Progetto eliminato correttamente');
     }
 }

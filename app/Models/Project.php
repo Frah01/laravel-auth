@@ -13,6 +13,6 @@ class Project extends Model
 
     public static function generateSlug($title)
     {
-        return Str::slug($title, ' ');
+        return Str::slug($title, '-');
     }
 }

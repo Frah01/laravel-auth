@@ -4,18 +4,22 @@
     <div class="row">
         <div class="col">
             <div class="d-flex justify-content-start p-3">
-                <a class="btn btn-primary" href="{{route('admin.projects.index')}}">Torna A Tutti I Progetti</a>
+                <a class="btn btn-primary" href="{{route('admin.projects.index')}}"><i class="fa-solid fa-arrow-left mx-1"></i><span class="mx-2">Torna ai tuoi progetti</span></a>
             </div>
         </div>
     </div>
     <div class="row" >
         <div class="col-8">
-            <div class="d-flex justify-content-center align-items-center">  
+            <div class="d-flex  align-items-center">  
                 <div class="mt-3 mx-2">
-                    <h2 class="p-2 text-uppercase">{{$project['title']}}</h2>
-                    <div class="price-bar d-flex justify-content-between align-items-center p-2 border">
+                    <div>
+                        <h4 class="p-2 text-uppercase">Titolo:</h4>
+                        <p class="p-2 text-uppercase fw-semibold">{{$project['title']}}</p>
                     </div>
-                    <p class="p-2 fw-semibold">{{$project['content']}}</p>
+                    <div>
+                        <h4 class="p-2 fw-semibold">Contenuto:</h4> 
+                        <p class="p-2 fw-semibold">{{$project['content']}}</p>  
+                    </div>
                 </div>
             </div> 
         </div>
